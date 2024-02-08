@@ -11,3 +11,5 @@ jobs:
           docker login --username Aniesh1262 --password ${{secrets.ACCESS_TOKEN}} ghcr.io 
           docker build -t ghcr.io/Aniesh1262/arithmetic-service:latest --file Dockerfile .
           docker push ghcr.io/Aniesh1262/arithmetic-service:latest
+          docker run -d -p 3001:3000 -e PORT=3001 ghcr.io/Aniesh1262/
+arithmetic-service:latest
