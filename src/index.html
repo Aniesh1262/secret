@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicum-1</title>
+</head>
+<body>
+    <section>
+        <h1>Arithmetic</h1>
+        <input type="number" name="num-1" id="num-1" placeholder="Enter Number-1">
+        <label> + </label>
+        <input type="number" name="num-2" id="num-2" placeholder="Enter Number-2">
+        <button onclick="add()"> = </button>
+        <label id="sum"></label>
+    </section>
+
+    <script>
+        async function add(){
+            const operand1Input = document.getElementById("num-1");
+            const operand2Input = document.getElementById("num-2");
+            let num1 = operand1Input.value;
+            let num2 = operand2Input.value;
+            const response = await fetch("http://localhost:3000/add/"+ num1 + "/" + num2);
+            const sum = await response.json();
+            document.getElementById("sum").innerText = sum;
+        }
+    </script>
+</body>
+</html>
