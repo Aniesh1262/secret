@@ -3,11 +3,11 @@ on:
   push
 jobs:
   build_and_publish:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build and push the image 
+      - name: Build and push the image
       run: |
         docker login --username Aniesh1262 --password ${{secrets.ACCESS_TOKEN}} ghcr.io 
         docker build -t ghcr.io/Aniesh1262/arithmetic-service:latest --file Dockerfile .
-        docker push ghcr.io/Aniesh1262/arithmetic-service: latest
+        docker push ghcr.io/Aniesh1262/arithmetic-service:latest
